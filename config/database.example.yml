@@ -1,0 +1,9 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: biofab
+  host: localhost
+  username: biofab
+  password: 
+  pool: 5
+	
