@@ -5,8 +5,9 @@ stderr_path "#{root}/log/unicorn.log"
 stdout_path "#{root}/log/unicorn.log"
 
 listen "/tmp/unicorn.blog.sock"
-worker_processes 3
 timeout 30
+
+worker_processes 10
 
 preload_app true
 
