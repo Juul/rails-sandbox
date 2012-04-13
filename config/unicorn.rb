@@ -9,14 +9,20 @@ timeout 30
 
 worker_processes 10
 
-preload_app true
+# The preload stuff below is problematic because it is not simple
+# to restart the master without loosing connections.
+# see: http://unicorn.bogomips.org/SIGNALS.html
+# so for now we are just sending HUP to restart workers
+# and have no preloading
 
-before_fork do |server, worker|
+#preload_app true
+
+#before_fork do |server, worker|
   # prevent master process from holding db connection
-  defined?(ActiveRecord::Base) and ActiveRecord::Base.connection.disconnect!
-end
+#  defined?(ActiveRecord::Base) and ActiveRecord::Base.connection.disconnect!
+#end
 
-after_fork do |server, worker|
+#after_fork do |server, worker|
   # re-establish connection after forking
-  defined?(ActiveRecord::Base) and ActiveRecord::Base.establish_connection
-end
+#  defined?(ActiveRecord::Base) and ActiveRecord::Base.establish_connection
+#end
