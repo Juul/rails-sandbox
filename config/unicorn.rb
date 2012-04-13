@@ -7,7 +7,7 @@ stdout_path "#{root}/log/unicorn.log"
 listen "/tmp/unicorn.blog.sock"
 timeout 30
 
-worker_processes 10
+worker_processes 2
 
 # The preload stuff below is problematic because it is not simple
 # to restart the master without loosing connections.
