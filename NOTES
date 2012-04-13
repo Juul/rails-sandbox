@@ -1,0 +1,3 @@
+
+cap deploy:setup
+cap deploy:cold
